@@ -16,11 +16,16 @@ import ProductDetail from './components/ProductDetail';
 import CategoryPage from './components/CategoryPage';
 import MyProducts from './components/MyProducts';
 import MyProfile from './components/MyProfile';
+import ChatsPage from './components/Chatpage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (<Home />),
+  },
+  {
+    path: "chat",
+    element: (<ChatsPage />),
   },
   {
     path: "/category/:catName",

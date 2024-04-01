@@ -61,9 +61,9 @@ function ProductDetail() {
                         <button onClick={() => handleContact(product.addedBy)}>
                             SHOW CONTACT DETAILS
                         </button>}
-                    {user && user.username && <h4>{user.username}</h4>}
-                    {user && user.mobile && <h3>{user.mobile}</h3>}
-                    {user && user.email && <h6>{user.email}</h6>}
+                    {user && user.username && <h4> chat id : - {user.username}</h4>}
+                    {user && user.mobile && <h3>mobile no : - {user.mobile}</h3>}
+                    {user && user.email && <h6>email :- {user.email}</h6>}
 
                 </div>
             </div>}

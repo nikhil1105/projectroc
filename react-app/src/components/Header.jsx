@@ -60,11 +60,6 @@ function Header(props) {
             <div>
 
 
-
-
-
-
-
                 <div
                     onClick={() => {
                         setshowOver(!showOver)
@@ -96,6 +91,16 @@ function Header(props) {
                     background: '#002f34',
                     borderRadius: '7px'
                 }}>
+                     <div>
+                        {localStorage.getItem('token') ?
+                            <Link to="/my-profile"  > <button className='logout-btn' > My Profile</button> </Link> :
+                            ""}
+                    </div>
+                    <div>
+                        {localStorage.getItem('token') ?
+                            <Link to="/chat"  > <button className='logout-btn' > Chats </button> </Link> :
+                            ""}
+                    </div>
                     <div>
                         {!!localStorage.getItem('token') &&
                             <Link to="/add-product">
