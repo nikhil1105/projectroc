@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import { useMultiChatLogic } from "react-chat-engine-advanced";
 import { PrettyChatWindow } from 'react-chat-engine-pretty';
 import API_URL from "../constants";
 import axios from "axios";
@@ -24,7 +23,6 @@ function ChatsPage() {
             })
     }, [])
 
-    const chatprops = useMultiChatLogic('0d484187-81b3-47aa-917f-2d26123683f3', user.username, user.secret)
     const navigate = useNavigate()
 
 
@@ -41,7 +39,7 @@ function ChatsPage() {
                 fontWeight: 'bold',
             }}   > Go Back </button>
             <PrettyChatWindow
-                projectId="0d484187-81b3-47aa-917f-2d26123683f3"
+                projectId="6c66f1d9-8457-4061-8731-2b1e32d7df44"
                 username={user.username}
                 secret={user.username}
                 style={{ height: '100%' }}

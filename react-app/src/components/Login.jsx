@@ -4,15 +4,22 @@ import { useState } from "react";
 import axios from "axios";
 import API_URL from "../constants";
 
+
 function Login() {
-    const navigate = useNavigate()
 
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const navigate = useNavigate()
 
     const handleApi = () => {
+
         const url = API_URL + '/login';
         const data = { username, password };
+
+        axios.post(API_URL + '/authenticate',
+            { username: username }
+        ).then((e)=>console.log(e)).catch(e => console.log(e))
+
         axios.post(url, data)
             .then((res) => {
                 if (res.data.message) {
@@ -26,6 +33,7 @@ function Login() {
             .catch((err) => {
                 alert('SERVER ERR')
             })
+
     }
 
     return (

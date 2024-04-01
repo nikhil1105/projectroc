@@ -5,7 +5,7 @@ var jwt = require('jsonwebtoken');
 const multer = require('multer')
 const productController = require('./controllers/productController');
 const userController = require('./controllers/userController');
-
+const axios = require('axios')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads')
@@ -43,6 +43,25 @@ app.post('/signup', userController.signup)
 app.get('/my-profile/:userId', userController.myProfileById)
 app.get('/get-user/:uId', userController.getUserById)
 app.post('/login', userController.login)
+app.post("/authenticate", async (req, res) => {
+    const { username } = req.body;
+
+    try {
+        const r = await axios.put('https://api.chatengine.io/users/',
+            {
+                username: username, secret: username, first_name: username
+            },
+            {
+                headers: { "private-key": "e29d9077-9160-4566-9917-33bc71c51d74" }
+            }
+        )
+        return res.status(r.status).json(r.data)
+    } catch (error) {
+        console.log(error);
+        return res.status(error.response.status).json(error.response.data)
+    }
+
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
